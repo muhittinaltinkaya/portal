@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./nginx
+    container_name: portal_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/html:/usr/share/nginx/html:ro
+      - /etc/ssl/certs/nginx/au2025.crt:/etc/nginx/ssl/au2025.crt:ro
+      - /etc/ssl/certs/nginx/au2025.key:/etc/nginx/ssl/au2025.key:ro
