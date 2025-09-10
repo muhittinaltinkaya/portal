@@ -1,6 +1,8 @@
 FROM nginx:stable
 
-# SSL sertifikaları zaten host üzerinden mount edilecek
+# SSL dizinini oluştur
+RUN mkdir -p /etc/nginx/ssl
+
 # Default conf'u sil
 RUN rm /etc/nginx/conf.d/default.conf
 
